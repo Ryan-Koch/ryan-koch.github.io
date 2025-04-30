@@ -1,0 +1,23 @@
+<nav class="site-nav">
+    <span class="nav-prefix"><a href="/">[~/]$</a></span>
+
+    <a href="{{ '/about/' | relative_url }}"
+       class="{% if page.url == '/about/' %}active{% endif %}">About Me</a>
+    <span class="nav-separator">|</span>
+
+    <a href="{{ '/writing/' | relative_url }}"
+       class="{% assign writing_base_url = '/personal-site/writing/' %}
+              {% if page.url == writing_base_url or page.url contains writing_base_url or page.layout == 'post' %}active{% endif %}">Writing</a>
+    <span class="nav-separator">|</span>
+
+    <a href="{{ '/podcast/' | relative_url }}"
+       class="{% if page.url == '/podcast/' %}active{% endif %}">Podcast</a>
+    <span class="nav-separator">|</span>
+
+    <a href="{{ '/mailing-list/' | relative_url }}"
+       class="{% if page.url == '/mailing-list/' %}active{% endif %}">Mailing List</a>
+    <span class="nav-separator">|</span>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXCDlbArofGci7mqrpEQ9jaAzq0nA9wcGGORLMPC78RlrLhw/viewform?usp=header" target="_blank"
+       class="{% if page.url == '/work/' %}active{% endif %}">Work With Me</a>
+</nav>

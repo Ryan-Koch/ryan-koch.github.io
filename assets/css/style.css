@@ -1,0 +1,709 @@
+/* ------------------------- */
+/* Basic Setup & Variables   */
+/* ------------------------- */
+:root {
+  --bg-color: #f5f5f5; /* Light grey */
+  --text-color: #111111; /* Near black */
+  --border-color: #cccccc; /* Light border */
+  --accent-color: #3d8b3d; /* Muted Green Example */
+  --secondary-text-color: #555555; /* For footer/separators */
+  --mono-font: 'Source Code Pro', monospace;
+}
+
+body {
+  font-family: var(--mono-font);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Full Height Layout Structure */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main.main-content {
+  flex-grow: 1; /* Takes up available space */
+}
+
+nav.site-nav,
+footer.site-footer {
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+a {
+  color: var(--text-color);
+}
+
+a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+/* ------------------------- */
+/* Navigation (.site-nav)    */
+/* ------------------------- */
+.site-nav {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  text-align: center; /* Center align the nav items */
+}
+
+.site-nav a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.site-nav .nav-prefix {
+  margin-right: 0.5em; /* Space after prefix */
+  /* Could add color: var(--secondary-text-color); if desired */
+}
+
+.site-nav .nav-separator {
+  margin: 0 0.75rem; /* Space around separators */
+  color: var(--secondary-text-color); /* Make separators less prominent */
+}
+
+.site-nav a {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+}
+
+/* ------------------------- */
+/* Main Content (.main-content) */
+/* ------------------------- */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Allow main content to take up remaining vertical space */
+  padding: 2rem 1rem; /* Basic padding */
+  padding: 3rem 1rem; /* More vertical padding */
+  text-align: center;
+}
+
+/* NEW: Specific centering class for landing page content block */
+.content-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertical Centering */
+  align-items: center; /* Horizontal Centering */
+  text-align: center;
+  /* Optional: Ensure it takes full height of its container if needed */
+  min-height: 100%;
+}
+
+/* Headshot */
+.headshot {
+  display: block;
+  width: 150px;    /* Control size */
+  height: 150px;   /* Make it square */
+  object-fit: cover; /* Cover the square area */
+  border: 2px solid var(--text-color); /* Visible border */
+  margin-bottom: 1.5rem;
+  /* border-radius: 4px; */ /* Uncomment for slightly rounded corners */
+  /* filter: grayscale(100%); */ /* Uncomment for B&W */
+}
+
+/* Tagline */
+.tagline {
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  color: #333333; /* Slightly softer than pure black */
+  /* Tildes are part of HTML text */
+}
+
+/* CTA Button */
+.cta-button {
+  display: inline-block; /* Allow padding/border */
+  background-color: var(--text-color);
+  color: var(--bg-color); /* Inverted text */
+  border: 1px solid var(--text-color);
+  padding: 0.8rem 1.5rem;
+  font-weight: bold;
+  text-decoration: none; /* No underline */
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  /* Button text including "[ >" is in HTML */
+}
+
+.cta-button:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #ffffff; /* White text on accent */
+  text-decoration: none;
+}
+
+/* ------------------------- */
+/* Footer (.site-footer)     */
+/* ------------------------- */
+.site-footer {
+  padding: 1rem 2rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between; /* Space out left/right content */
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--secondary-text-color);
+}
+
+.site-footer a {
+  color: var(--secondary-text-color); /* Match footer text */
+  text-decoration: underline; /* Underline links in footer */
+}
+
+.site-footer a:hover {
+  color: var(--text-color); /* Darken on hover */
+}
+
+/* ------------------------- */
+/* Responsive Adjustments    */
+/* ------------------------- */
+@media (max-width: 768px) {
+  /* Stack footer items */
+  .site-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+  .site-footer span {
+      margin-bottom: 0.5rem;
+  }
+  .site-footer span:last-child {
+      margin-bottom: 0;
+  }
+
+  /* Reduce nav separator spacing slightly */
+  .site-nav .nav-separator {
+      margin: 0 0.4rem;
+  }
+  .site-nav a {
+      font-size: 0.85rem; /* Slightly smaller font on mobile */
+  }
+  .tagline {
+      font-size: 1.1rem;
+  }
+  .cta-button {
+      padding: 0.7rem 1.2rem;
+      font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+    /* Further adjustments for very small screens if needed */
+    .site-nav a {
+        font-size: 0.8rem; /* Even smaller */
+    }
+     .site-nav .nav-separator {
+        margin: 0 0.2rem;
+    }
+    /* Could consider stacking nav items here if wrapping looks bad */
+}
+
+/* ------------------------- */
+/* Blog List Page Styles     */
+/* ------------------------- */
+
+.page-title {
+  font-size: 1.8rem; /* Adjust size as needed */
+  margin-bottom: 2rem;
+  text-align: center; /* Center the main page title */
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color); /* Optional separator */
+  padding-bottom: 1rem;
+}
+
+.post-list {
+  max-width: 700px; /* Constrain width for readability */
+  margin: 0 auto; /* Center the list container */
+  padding: 0 1rem; /* Padding on smaller screens */
+}
+
+.post-item {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px dashed var(--border-color); /* Dashed border for retro/brutal feel */
+}
+
+.post-item:last-child {
+  border-bottom: none; /* Remove border from last item */
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.post-title {
+  font-size: 1.5rem; /* Title size */
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+}
+
+.post-title a {
+  text-decoration: none; /* No underline by default */
+  color: var(--text-color);
+}
+
+.post-title a:hover {
+  color: var(--accent-color);
+  text-decoration: underline; /* Underline on hover */
+}
+
+.post-meta {
+  font-size: 0.85rem;
+  color: var(--secondary-text-color);
+  margin-top: 0;
+  margin-bottom: 1rem; /* Space before excerpt */
+}
+
+.post-excerpt {
+  font-size: 1rem;
+  line-height: 1.7; /* Improve readability */
+  color: #333333; /* Slightly softer text */
+  margin-top: 0;
+  margin-bottom: 1rem; /* Space before read more */
+}
+
+.read-more {
+    display: inline-block; /* Treat like a button/link */
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--accent-color); /* Use accent color */
+    text-decoration: none;
+}
+
+.read-more:hover {
+    color: var(--text-color); /* Darken on hover */
+    text-decoration: underline;
+}
+
+/* Optional: Style for 'active' nav link */
+.site-nav a.active {
+    font-weight: bold; /* Make active link bold */
+    /* Or add a border-bottom, change color, etc. */
+    /* color: var(--accent-color); */
+}
+
+/* Adjustments for smaller screens if needed */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 1.6rem;
+    }
+    .post-title {
+        font-size: 1.3rem;
+    }
+    .post-excerpt {
+        font-size: 0.95rem;
+    }
+}
+
+/* ------------------------- */
+/* Single Post Layout Styles */
+/* (_layouts/post.html)      */
+/* ------------------------- */
+
+/* Container for the single post content */
+.post-content {
+  max-width: 750px; /* Adjust for optimal reading width */
+  margin: 2rem auto 3rem auto; /* Center horizontally, add vertical space */
+  padding: 0 1rem; /* Padding on smaller screens */
+}
+
+/* Header section below the main nav */
+.post-header {
+  margin-bottom: 2rem;
+  text-align: center; /* Center title and meta */
+  border-bottom: 1px dashed var(--border-color); /* Separator */
+  padding-bottom: 1.5rem;
+}
+
+.post-header-title {
+  font-size: 2.2rem; /* Prominent title */
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  line-height: 1.2;
+}
+
+/* Re-use/adapt post-meta style */
+.post-header .post-meta {
+  font-size: 0.9rem;
+  color: var(--secondary-text-color);
+  margin-top: 0;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.post-categories {
+    /* Optional styling for category list */
+}
+
+
+/* Main body area where Markdown content is rendered */
+.post-body {
+  margin-top: 2rem;
+  line-height: 1.7; /* Improve readability */
+  font-size: 1.05rem; /* Slightly larger body font for posts */
+}
+
+/* Basic Markdown Element Styling within posts */
+.post-body h2,
+.post-body h3,
+.post-body h4,
+.post-body h5,
+.post-body h6 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  line-height: 1.3;
+  color: var(--text-color);
+  /* Optional: Add borders for brutalist headings */
+  /* border-bottom: 1px solid var(--border-color); */
+  /* padding-bottom: 0.3em; */
+}
+
+.post-body h2 { font-size: 1.8rem; }
+.post-body h3 { font-size: 1.5rem; }
+.post-body h4 { font-size: 1.3rem; }
+
+.post-body p {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.post-body ul,
+.post-body ol {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-left: 1.5em; /* Indent lists */
+}
+
+.post-body li {
+  margin-bottom: 0.5rem;
+}
+
+.post-body blockquote {
+  margin: 1.5rem 0;
+  padding: 0.5rem 1.5rem;
+  border-left: 3px solid var(--accent-color); /* Accent color border */
+  background-color: rgba(0, 0, 0, 0.02); /* Subtle background */
+  color: var(--secondary-text-color);
+  font-style: italic;
+}
+
+.post-body blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+.post-body img {
+  display: block; /* Center images */
+  max-width: 100%; /* Responsive images */
+  height: auto;
+  margin: 2rem auto; /* Space around images */
+  border: 1px solid var(--border-color); /* Optional border */
+}
+
+/* Code Blocks */
+.post-body pre,
+.post-body code {
+  font-family: var(--mono-font); /* Ensure monospaced font */
+  font-size: 0.9em;
+  background-color: rgba(0, 0, 0, 0.04); /* Subtle code background */
+  border: 1px solid var(--border-color);
+}
+
+.post-body code {
+    padding: 0.1em 0.4em; /* Padding for inline code */
+    border-radius: 3px;
+}
+
+.post-body pre {
+  padding: 1rem; /* Padding for code blocks */
+  overflow-x: auto; /* Allow horizontal scrolling */
+  border-radius: 0; /* Sharp corners for brutalism */
+}
+
+.post-body pre code {
+  padding: 0; /* Reset padding for code inside pre */
+  border: none; /* Reset border for code inside pre */
+  background-color: transparent; /* Reset background */
+}
+
+/* Footer section for tags */
+.post-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--border-color); /* Separator */
+}
+
+.post-tags {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    /* Optional: Style tags like little buttons */
+}
+
+.post-tags span {
+    font-weight: bold;
+    margin-right: 0.5em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .post-header-title {
+        font-size: 1.8rem;
+    }
+    .post-body {
+        font-size: 1rem;
+    }
+    .post-body h2 { font-size: 1.5rem; }
+    .post-body h3 { font-size: 1.3rem; }
+}
+
+/* ------------------------- */
+/* About / Resume Page Styles*/
+/* ------------------------- */
+
+/* Wrapper for content pages like About */
+.page-content.resume-style {
+  max-width: 850px; /* Adjust width for resume readability */
+  margin: 1rem auto 3rem auto; /* Top margin, centered, bottom margin */
+  padding: 0 1rem; /* Padding on sides */
+}
+
+.resume-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.resume-header h1 {
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+    font-size: 2.4rem; /* Larger name */
+}
+
+.resume-header .headline {
+    font-size: 1.1rem;
+    color: var(--secondary-text-color);
+    margin-top: 0;
+}
+
+.resume-section {
+    margin-bottom: 2.5rem;
+}
+
+.resume-section h2 {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    /* Bracket style from visual */
+    /* content: '[' attr(title) ']'; /* Doesn't work directly on text */
+}
+
+.resume-entry {
+    margin-bottom: 1.5rem; /* Space between jobs/education entries */
+}
+
+.resume-entry h3 { /* Job Title / Institution */
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 0.1rem;
+    color: var(--text-color);
+}
+
+.resume-entry h4 { /* Company / Degree */
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+    font-weight: normal; /* Less emphasis than title */
+    color: var(--secondary-text-color);
+}
+
+.resume-entry .meta { /* Dates & Location */
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+}
+
+.resume-entry ul {
+    list-style: square; /* Or disc */
+    padding-left: 1.5em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.resume-entry li {
+    margin-bottom: 0.5em;
+    line-height: 1.6;
+}
+
+.skills h4 { /* Skill category headings */
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.skills ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1rem;
+    /* Optional: Display skills more compactly */
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* gap: 0.5rem 1rem; */
+}
+
+.skills li {
+    margin-bottom: 0.4rem;
+    /* border: 1px solid var(--border-color); */
+    /* padding: 0.2rem 0.5rem; */
+    /* display: inline-block; */
+}
+
+.connect p {
+    text-align: center;
+}
+
+hr.section-divider {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 3rem 0; /* Space out sections */
+}
+
+/* Ensure base typography is okay */
+.page-content p, .page-content li {
+    line-height: 1.7; /* Consistent line height */
+}
+
+/* ------------------------- */
+/* Podcast Page Styles       */
+/* ------------------------- */
+
+/* Uses .page-content for max-width */
+
+.podcast-page .page-title {
+  /* Uses existing .page-title styles */
+  margin-bottom: 3rem; /* More space below title */
+}
+
+.podcast-entry {
+  text-align: center; /* Center align content within the entry */
+  margin-bottom: 3rem;
+  /* Optional: Add border */
+  /* border: 1px dashed var(--border-color); */
+  /* padding: 2rem; */
+}
+
+.podcast-logo {
+  display: block;
+  max-width: 150px; /* Adjust size as needed */
+  height: auto;
+  margin: 0 auto 1.5rem auto; /* Center logo, space below */
+  border: 1px solid var(--border-color); /* Consistent border style */
+}
+
+.podcast-title { /* Styling for the H2 */
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.podcast-description {
+  max-width: 650px; /* Constrain description width for readability */
+  margin: 0 auto 1.5rem auto; /* Center description block */
+  text-align: left; /* Left-align text within the centered block */
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #333333;
+}
+
+.podcast-description em { /* For 'Hosted by...' line */
+  color: var(--secondary-text-color);
+  display: block; /* Put 'Hosted by' on new line */
+  text-align: center; /* Center 'Hosted by' */
+  margin-top: 1rem;
+  font-size: 0.95em;
+}
+
+.civic-tech-definition { /* Optional styling for definition */
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border-color);
+  font-size: 0.9rem;
+  color: var(--secondary-text-color);
+  text-align: left;
+}
+
+.podcast-link-wrapper {
+  margin-top: 2rem;
+}
+
+.podcast-link {
+  /* Button-like link */
+  display: inline-block;
+  background-color: transparent;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.podcast-link:hover {
+  background-color: var(--accent-color);
+  color: var(--bg-color); /* Light text on hover */
+  text-decoration: none;
+}
+
+/* ---------------------------- */
+/* Mailing List Page Styles     */
+/* ---------------------------- */
+
+.mailing-list-page .page-title {
+  /* Uses existing .page-title styles */
+  margin-bottom: 3rem; /* Space below title */
+  text-align: center;
+}
+
+.mailing-list-intro {
+  text-align: center; /* Center the intro text */
+  max-width: 600px; /* Limit width for readability */
+  margin: 0 auto 2.5rem auto; /* Center block, space below */
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--secondary-text-color); /* Softer color */
+}
+
+/* Find the existing rule for this */
+.mailing-list-embed-container {
+  margin: 2rem auto; /* Keeps the container itself centered */
+
+  display: flex;           /* Enable Flexbox */
+  justify-content: center; /* Center direct children horizontally */
+
+  /* Optional: Constrain the width if the embed doesn't do it well */
+  /* max-width: 500px; */
+  min-height: 250px; /* Ensure space for the form to load */
+}
+
+/* Reminder: The internal elements of the signup form (input fields, button) */
+/* are styled by the script loaded from ryan-koch.kit.com. */
+/* You likely cannot easily override them with this stylesheet. */

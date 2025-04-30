@@ -1,0 +1,45 @@
+---
+# Use the default layout as the base wrapper
+layout: default
+---
+
+{% comment %}
+The content below will be inserted where {{ content }} appears in _layouts/default.html
+It structures how a single blog post is displayed.
+{% endcomment %}
+
+<article class="post-content" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    {% comment %} Display the Post Title {% endcomment %}
+    <h1 class="post-header-title" itemprop="name headline">{{ page.title | escape }}</h1>
+
+    {% comment %} Display Post Metadata (Date, Categories) {% endcomment %}
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%B %d, %Y" }}
+      </time>
+      {% if page.categories.size > 0 %}
+        <span class="post-categories"> | Categories: {{ page.categories | join: ', ' }}</span>
+      {% endif %}
+      {% comment %} You could add author, reading time etc. here too {% endcomment %}
+    </p>
+  </header>
+
+  {% comment %} Display the main Post Content (converted from Markdown) {% endcomment %}
+  <div class="post-body" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% comment %} Display Post Tags if they exist {% endcomment %}
+  {% if page.tags.size > 0 %}
+  <footer class="post-footer">
+    <p class="post-tags">
+      <span>Tags:</span> {{ page.tags | join: ', ' }}
+    </p>
+  </footer>
+  {% endif %}
+
+  {% comment %} Optional: Add related posts, comments section, etc. below {% endcomment %}
+
+</article>
