@@ -1,6 +1,7 @@
 title: Ryan Koch
 baseurl: ""
 url: "https://ryan-koch.github.io"
+permalink: pretty
 markdown: kramdown
 kramdown:
   input: GFM
