@@ -704,6 +704,146 @@ hr.section-divider {
   min-height: 250px; /* Ensure space for the form to load */
 }
 
+/* About page: left-align body copy for readability; headings stay centered */
+.page-content.resume-style .resume-section p,
+.page-content.resume-style .resume-section li,
+.page-content.resume-style .resume-entry h3,
+.page-content.resume-style .resume-entry h4,
+.page-content.resume-style .resume-entry .meta {
+    text-align: left;
+}
+.page-content.resume-style .connect p {
+    text-align: center;
+}
+
+/* ---------------------------- */
+/* Work With Me / Contact Form  */
+/* ---------------------------- */
+
+.work-intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2.5rem auto;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--secondary-text-color);
+}
+
+.fs-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left; /* .main-content centers text; forms read better left-aligned */
+}
+
+.fs-field {
+  margin-bottom: 1.5rem;
+}
+
+.fs-label {
+  display: block;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.fs-input,
+.fs-textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--mono-font);
+  font-size: 1rem;
+  color: var(--text-color);
+  background-color: #ffffff;
+  border: 1px solid var(--text-color);
+  border-radius: 0; /* Sharp corners, matching the rest of the site */
+  padding: 0.7rem 0.8rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fs-textarea {
+  min-height: 9rem;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.fs-input::placeholder,
+.fs-textarea::placeholder {
+  color: #888888;
+}
+
+.fs-input:focus,
+.fs-textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 3px 3px 0 var(--accent-color); /* Offset shadow for the brutalist feel */
+}
+
+/* Keep the honeypot out of sight and out of the tab order */
+.fs-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.fs-button-group {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* Matches .cta-button */
+.fs-button {
+  display: inline-block;
+  font-family: var(--mono-font);
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  border: 1px solid var(--text-color);
+  border-radius: 0;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.fs-button:hover,
+.fs-button:focus-visible {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #ffffff;
+}
+
+.fs-button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.fs-note {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--secondary-text-color);
+  margin: 1rem 0 0 0;
+}
+
+.fs-status {
+  text-align: center;
+  font-weight: bold;
+  min-height: 1.6em; /* Reserve space so the page doesn't jump */
+  margin: 1rem 0 0 0;
+}
+
+.fs-status.is-success { color: var(--accent-color); }
+.fs-status.is-error   { color: #b03a2e; }
+
+@media (max-width: 768px) {
+  .fs-button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+
 /* Reminder: The internal elements of the signup form (input fields, button) */
 /* are styled by the script loaded from ryan-koch.kit.com. */
 /* You likely cannot easily override them with this stylesheet. */

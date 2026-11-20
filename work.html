@@ -1,0 +1,282 @@
+---
+layout: default
+title: Work With Me - Ryan Koch Advisory
+permalink: /work/
+description: "Ryan Koch Advisory LLC is a veteran-owned small business offering discovery, prototyping, modernization, and fractional technical leadership for government and nonprofit programs."
+---
+
+<div class="page-content resume-style">
+
+  <header class="resume-header">
+    <h1>Ryan Koch Advisory</h1>
+    <p class="headline">Research, prototypes, and technical leadership for public-serving programs | Veteran-owned small business</p>
+  </header>
+
+    <section class="resume-section connect" id="get-in-touch">
+    <h2>[ Get In Touch ]</h2>
+    <p>
+      Tell me a bit about your program and what's not working.
+    </p>
+
+  <form id="contact-form" class="fs-form" action="https://formspree.io/f/mbgoyeje" method="POST">
+    <div class="fs-field">
+      <label class="fs-label" for="name">Your Name</label>
+      <input class="fs-input" id="name" name="name" type="text" autocomplete="name" required />
+    </div>
+    <div class="fs-field">
+      <label class="fs-label" for="email">Email</label>
+      <input class="fs-input" id="email" name="email" type="email" autocomplete="email" required />
+    </div>
+    <div class="fs-field">
+      <label class="fs-label" for="message">What are you working on, and how can I help?</label>
+      <textarea
+        class="fs-textarea"
+        id="message"
+        name="message"
+        rows="6"
+        placeholder="e.g., We're modernizing our case management system and need interim technical leadership."
+        required
+      ></textarea>
+    </div>
+
+    <!-- Honeypot: hidden from people, bots tend to fill it in. Formspree drops submissions with _gotcha filled
+         server-side (covers no-JS posts); the script below also short-circuits so nothing is sent. -->
+    <div class="fs-honeypot" aria-hidden="true">
+      <label for="website">Leave this field empty</label>
+      <input id="website" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <div class="fs-button-group">
+      <button class="fs-button" type="submit">[ > SEND ]</button>
+    </div>
+    <p class="fs-status" id="form-status" role="status" aria-live="polite"></p>
+  </form>
+
+<script>
+  (function () {
+    var form = document.getElementById('contact-form');
+    var status = document.getElementById('form-status');
+    var button = form.querySelector('.fs-button');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      var data = new FormData(form);
+
+      // Honeypot tripped: act like it worked, send nothing.
+      if (data.get('_gotcha')) {
+        form.reset();
+        status.textContent = "Thanks, I'll be in touch.";
+        return;
+      }
+
+      button.disabled = true;
+      status.className = 'fs-status';
+      status.textContent = 'Sending...';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function (response) {
+        if (response.ok) {
+          form.reset();
+          status.classList.add('is-success');
+          status.textContent = "Thanks, I'll be in touch.";
+        } else {
+          throw new Error('Submission failed');
+        }
+      }).catch(function () {
+        status.classList.add('is-error');
+        status.textContent = 'Something went wrong. Please try again in a moment.';
+      }).finally(function () {
+        button.disabled = false;
+      });
+    });
+  })();
+</script>
+
+    <p>
+      Or email <a href="mailto:inbox@ryanakoch.com">inbox@ryanakoch.com</a> ·
+      <a href="https://www.linkedin.com/in/kochryan/" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
+      <a href="{{ '/about/' | relative_url }}">More about me</a>
+    </p>
+  </section>
+
+
+  <section class="resume-section overview">
+    <h2>[ Overview ]</h2>
+    <p>
+      I research how public services work and prototype ways to improve them. Then I help the teams that run them keep improving after I'm gone.
+    </p>
+    <p>
+      Most engagements start with talking to the people a service is for and the caseworkers and staff who serve them, then learning what systems and data the service depends on. Only after that do I decide what to change. Sometimes the fix is technology. Sometimes it's policy or process. I'll tell you which one I think it is.
+    </p>
+    <p>
+      I work with government agencies, nonprofits, and the digital services firms that partner with them, either directly or as a subcontractor on a larger team. I'm happy to lead the work or be a hands-on member of the team doing it.
+    </p>
+  </section>
+
+  <hr class="section-divider">
+
+  <section class="resume-section engagements">
+    <h2>[ Engagements ]</h2>
+
+    <div class="resume-entry">
+      <h3>Discovery and research</h3>
+      <p>Interviews and field observation with users and frontline staff, plus technical discovery of the systems and data underneath. You get a clear picture of where the problems are and what to do first.</p>
+    </div>
+
+    <div class="resume-entry">
+      <h3>Prototypes and first versions</h3>
+      <p>Thin, working versions tested with real users early. I write the code myself or alongside your team.</p>
+    </div>
+
+    <div class="resume-entry">
+      <h3>Modernization and fractional leadership</h3>
+      <p>Replacing legacy systems while people are still using them, and part-time engineering or IT leadership while you need it. Roadmaps, delivery measurement, vendor and prime coordination, incident and change management.</p>
+    </div>
+
+    <div class="resume-entry">
+      <h3>Security and AI governance</h3>
+      <p>NIST RMF and 800-171, authority-to-operate support, least-privilege access design, and AI governance that teams will actually follow.</p>
+    </div>
+
+    <div class="resume-entry">
+      <h3>Building capacity</h3>
+      <p>Hiring processes and rubrics, leveling, procurement coaching, and governance practices that keep working after the engagement ends.</p>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <section class="resume-section focus">
+    <h2>[ Focus Areas ]</h2>
+
+    <div class="resume-entry">
+      <h3>Domains</h3>
+      <ul>
+        <li>Children and families, especially child care</li>
+        <li>Military and veteran programs</li>
+        <li>Benefits and case management</li>
+      </ul>
+    </div>
+
+    <div class="resume-entry">
+      <h3>Methods</h3>
+      <ul>
+        <li>Interviews with users and frontline staff</li>
+        <li>Field observation</li>
+        <li>Prototype and usability testing</li>
+        <li>Measuring administrative burden</li>
+        <li>Experiment design and program evaluation</li>
+        <li>System and architecture assessment</li>
+        <li>Security and privacy assessment</li>
+      </ul>
+    </div>
+
+    <div class="resume-entry">
+      <h3>Technology</h3>
+      <p>Python, Django, Go, Java, React, JavaScript, SQL. Postgres and MySQL. AWS, Docker, Terraform, GitHub Actions. Data pipelines, retrieval systems, and agentic development workflows.</p>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <section class="resume-section experience">
+    <h2>[ Past Work ]</h2>
+    <p>Ryan Koch Advisory is a new practice. Here's what I've done in each of these areas at Truss (on MilMove, for U.S. Transportation Command) and at Child Care Aware of America (CCAoA).</p>
+
+    <div class="resume-entry">
+      <h3>Discovery and research</h3>
+      <ul>
+        <li>Interviewed and observed people using MilMove on quarterly base visits, working alongside our UX researchers.</li>
+        <li>Joined regular interviews with military families, caseworkers, and quality control staff at CCAoA. Those interviews showed families were confused by long checklist emails, which moved a document management system up the roadmap and led to a plain-language rewrite of onboarding.</li>
+        <li>Measured administrative burden at CCAoA by counting document touch points before, during, and after modernization. The new system cut them by 20%.</li>
+        <li>Wrote MilMove's guide to measuring team impact, using program evaluation methods like difference-in-differences to test whether process changes actually worked.</li>
+        <li>Wrote a research briefing supporting Ohio's K-12 computer science bill (HB 170), which became law.</li>
+      </ul>
+    </div>
+
+    <div class="resume-entry">
+      <h3>Prototypes and first versions</h3>
+      <ul>
+        <li>Before architecting a new case management system for MilMove, built a thin end-to-end version of the approval flow and had caseworkers process test moves on it.</li>
+        <li>Helped turn around MilMove delivery ahead of go-live. Got the customer to set the first milestone as enabling the first 200 moves, and coached teams to bring lean options with clear trade-offs. Teams were delivering consistently within three months.</li>
+        <li>Led the phased modernization of CCAoA's military child care fee assistance platform through its first production release, while families kept using the old one.</li>
+        <li>Mapped how 49 states and DC publish child care licensing data, then built an open pipeline that normalizes it for 250,000+ providers and publishes weekly. (<a href="https://github.com/Ryan-Koch/child-care-provider-scraper" target="_blank" rel="noopener noreferrer">code</a>, <a href="https://huggingface.co/datasets/ryan-koch/US-Child-Care-Providers" target="_blank" rel="noopener noreferrer">dataset</a>, <a href="https://childcaremosaic.com" target="_blank" rel="noopener noreferrer">Childcare Mosaic</a>)</li>
+      </ul>
+    </div>
+
+    <div class="resume-entry">
+      <h3>Modernization, integration, and procurement</h3>
+      <ul>
+        <li>Practice lead for four teams and 28 engineers on MilMove, a $20M/year contract.</li>
+        <li>Owned MilMove's integration with another federal contractor. Wrote the partner API versioning policy, negotiated its support policy on the customer's behalf, and reorganized teams so it had a dedicated owner.</li>
+        <li>Worked both sides of procurement: led engineering teams writing government proposals at Truss, and reviewed vendor proposals as the technical member of CCAoA's leadership team.</li>
+        <li>Ran a 15-person product and engineering department at CCAoA on a ~$5.5M budget.</li>
+      </ul>
+    </div>
+
+    <div class="resume-entry">
+      <h3>Governance and capacity</h3>
+      <ul>
+        <li>Interviewed CCAoA's department heads, ran AI policy sessions with the full senior leadership team, and wrote the organization's first AI governance framework.</li>
+        <li>Built CCAoA's security and technology governance as a repeatable set of practices: security policies, project intake, decision records, and incident and change management.</li>
+        <li>Was the escalation point for MilMove's authority to operate, and cut an outside contractor's production access down to least privilege.</li>
+        <li>Built CCAoA's UX design and research practice, and advised local child care resource and referral agencies on technology tooling.</li>
+        <li>Co-presented a featured session with Nava at CCAoA's 2026 Symposium on AI pilots for early childhood systems, for an audience that included state child care agency staff.</li>
+        <li>Designed an open hiring process for MilMove engineering leads with a rubric and structured questions. Applicants went from 3 for one opening to 10 for two.</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <section class="resume-section differentiators">
+    <h2>[ Why Me ]</h2>
+    <div class="resume-entry">
+    <ul>
+      <li><strong>Policy and engineering.</strong> I have a public policy degree and fifteen years in software. Administrative burden, incentive design, and program evaluation shape how I make technical decisions.</li>
+      <li><strong>Advise and build.</strong> I still write code, run product, and sit in on research interviews. I won't hand you a slide deck and leave.</li>
+      <li><strong>Federal and nonprofit experience.</strong> DoD, federally funded nonprofit programs, and civic tech, mostly in places where compliance matters.</li>
+      <li><strong>Security-certified.</strong> CISM and CASP+.</li>
+      <li><strong>Remote-first, US hours.</strong> I led a US-based team from Korea and can cover every US time zone.</li>
+    </ul>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <section class="resume-section company">
+    <h2>[ Company Data ]</h2>
+    <div class="resume-entry">
+      <ul>
+        <li><strong>Legal entity:</strong> Ryan Koch Advisory LLC (Wyoming)</li>
+        <li><strong>Business type:</strong> Veteran-owned small business</li>
+        <li><strong>Principal:</strong> Ryan Koch, MA Public Policy (University of Chicago), CISM, CASP+</li>
+        <li><strong>Location:</strong> Busan, South Korea. Covers all US time zones, open to travel.</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <section class="resume-section availability">
+    <h2>[ Availability ]</h2>
+    <div class="resume-entry">
+    <ul>
+      <li>Available now for part-time or full-time engagements.</li>
+      <li>Short discovery sprints through longer leadership roles.</li>
+      <li>Happy to travel for on-site research and kickoffs.</li>
+      <li>Open to subcontracting and teaming with primes and digital services firms.</li>
+    </ul>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <a href="#get-in-touch" class="cta-button">[ > Get in touch ]</a>
+
+
+</div>
