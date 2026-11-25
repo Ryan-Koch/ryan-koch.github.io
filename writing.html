@@ -19,7 +19,7 @@ title: Writing # Sets the page title (used in the <title> tag via the layout)
 
             {% if post.excerpt %}
               <p class="post-excerpt">
-                  {{ post.excerpt }}
+                  {{ post.post_description }}
               </p>
               <a href="{{ post.url | relative_url }}" class="read-more">[ Read More > ]</a>
             {% else %}

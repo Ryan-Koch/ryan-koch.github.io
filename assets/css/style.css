@@ -704,6 +704,25 @@ hr.section-divider {
   min-height: 250px; /* Ensure space for the form to load */
 }
 
+/* post content */
+.post-content p {
+    text-align: left;
+}
+
+.post-content table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.post-content th {
+    border: 1px solid black;
+}
+
+.post-content td {
+    border: 1px solid black;
+}
+
+
 /* Reminder: The internal elements of the signup form (input fields, button) */
 /* are styled by the script loaded from ryan-koch.kit.com. */
 /* You likely cannot easily override them with this stylesheet. */
