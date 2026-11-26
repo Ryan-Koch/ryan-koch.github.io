@@ -61,7 +61,7 @@ A quick instinct would be to build out a Federal database solution. While that w
 
 **3. Write it into procurement.** Many of these portals were bought, not built. The cheapest moment to require a bulk export, a documented API and the common core is when the contract is written. A clause in an agreement is likely to cost a whole lost less than negotiating a retro-fit after a big SaaS rollout.
 
-**4. Treat bot traffic as feedback** When a state adds CAPTCHA to a public licensing search, it is usually protecting a fragile system from load. That is reasonable. But it also blocks the researchers and civic technologists who would otherwise build on the data. A bulk file removes the reason to scrape and the reason to block. The best situation would be separating these systems such that the load from downloads has no impact on the experience for folks using search.
+**4. Treat bot traffic as feedback.** When a state adds CAPTCHA to a public licensing search, it is usually protecting a fragile system from load. That is reasonable. But it also blocks the researchers and civic technologists who would otherwise build on the data. A bulk file removes the reason to scrape and the reason to block. The best situation would be separating these systems such that the load from downloads has no impact on the experience for folks using search.
 
 ## A practitioner's takeaway
 
