@@ -33,9 +33,9 @@ The good news is there are a bunch that are easy. 6 provide an easy to download 
 But some of sit behind invisible reCAPTCHAs. In one case, the scraper has to run a real Chrome browser that passes as human, from an internet address in the Eastern time zone. If it fails, the site does not return an error. It returns an empty list, as if the state had no providers.
 
 In another case the site itself has performance limitations. This can mean a run that takes as long as a day or more to complete.
-As you might imagine, that adds risk and complexity when things go wrong and I'm trying to get a dataset pushed up.
+As you might imagine, that adds risk and complexity when things go wrong and I'm trying to get a dataset update pushed.
 
-At times the data is spread across more than one platform. In at multiple examples the scrapers need to pull from separate licensing and quality program portals in order to get something approaching a complete dataset.
+At times the data is spread across more than one platform. In multiple examples the scrapers have to pull from separate licensing and quality program portals in order to get complete records.
 
 And things can change and break things downstream. When I'm scraping search sites directly there's the risk that UX improvements can change page structure, which makes scraping techniques that rely upon it flimsy. So far I've lucked out in that states with API and CSV sources haven't switched those contracts up on me in a significant way.
 
