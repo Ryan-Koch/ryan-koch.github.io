@@ -37,7 +37,7 @@ As you might imagine, that adds risk and complexity when things go wrong and I'm
 
 At times the data is spread across more than one platform. In at multiple examples the scrapers need to pull from separate licensing and quality program portals in order to get something approaching a complete dataset.
 
-And sometimes things change and break things for me downstream. In cases where I'm scraping the search sites directly there's the risk that improvements to UX fundamentally change the page structure, which makes scraping techniques that rely upon it flimsy. So far I've lucked out in that the state sources using APIs or CSVs haven't switched those contracts up on me in a significant way.
+And things can change and break things downstream. When I'm scraping search sites directly there's the risk that UX improvements can change page structure, which makes scraping techniques that rely upon it flimsy. So far I've lucked out in that states with API and CSV sources haven't switched those contracts up on me in a significant way.
 
 These issues and others shouldn't be surprising and shouldn't be seen as malicious. These systems do their best at what was intended: providing reliable information to the folks living in their state.
 
