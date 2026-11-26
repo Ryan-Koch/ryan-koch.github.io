@@ -32,11 +32,14 @@ The good news is there are a bunch that are easy. 6 provide an easy to download 
 
 But some of sit behind invisible reCAPTCHAs. In one case, the scraper has to run a real Chrome browser that passes as human, from an internet address in the Eastern time zone. If it fails, the site does not return an error. It returns an empty list, as if the state had no providers.
 
-In another case, the scraping operation takes multiple days to page through it. There appears to be either some pretty aggressive throttling. From that you might think the move is to use a proxy, and you'd be right. But even spreading out that way I have to be careful not to be a jerk with load with how the site performs, so even with that it's a 2.5 day or so operation.
+In another case the site itself has performance limitations. This can mean a run that takes as long as a day or more to complete.
+As you might imagine, that adds risk and complexity when things go wrong and I'm trying to get a dataset pushed up.
 
 At times the data is spread across more than one platform. In at multiple examples the scrapers need to pull from separate licensing and quality program portals in order to get something approaching a complete dataset.
 
-This shouldn't be surprising and it shouldn't be seen as malicious. These systems do their best at what was intended: providing reliable information to the folks living in their state.
+And things can change and break things downstream. When I'm scraping search sites directly there's the risk that UX improvements can change page structure, which makes scraping techniques that rely upon it flimsy. So far I've lucked out in that states with API and CSV sources haven't switched those contracts up on me in a significant way.
+
+These issues and others shouldn't be surprising and shouldn't be seen as malicious. These systems do their best at what was intended: providing reliable information to the folks living in their state.
 
 ## Who pays for the fragmentation
 
@@ -58,7 +61,7 @@ A quick instinct would be to build out a Federal database solution. While that w
 
 **3. Write it into procurement.** Many of these portals were bought, not built. The cheapest moment to require a bulk export, a documented API and the common core is when the contract is written. A clause in an agreement is likely to cost a whole lost less than negotiating a retro-fit after a big SaaS rollout.
 
-**4. Treat bot traffic as feedback** When a state adds CAPTCHA to a public licensing search, it is usually protecting a fragile system from load. That is reasonable. But it also blocks the researchers and civic technologists who would otherwise build on the data. A bulk file removes the reason to scrape and the reason to block. The best situation would be separating these systems such that the load from downloads has no impact on the experience for folks using search.
+**4. Treat bot traffic as feedback.** When a state adds CAPTCHA to a public licensing search, it is usually protecting a fragile system from load. That is reasonable. But it also blocks the researchers and civic technologists who would otherwise build on the data. A bulk file removes the reason to scrape and the reason to block. The best situation would be separating these systems such that the load from downloads has no impact on the experience for folks using search.
 
 ## A practitioner's takeaway
 
