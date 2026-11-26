@@ -32,11 +32,14 @@ The good news is there are a bunch that are easy. 6 provide an easy to download 
 
 But some of sit behind invisible reCAPTCHAs. In one case, the scraper has to run a real Chrome browser that passes as human, from an internet address in the Eastern time zone. If it fails, the site does not return an error. It returns an empty list, as if the state had no providers.
 
-In another case, the scraping operation takes multiple days to page through it. There appears to be either some pretty aggressive throttling. From that you might think the move is to use a proxy, and you'd be right. But even spreading out that way I have to be careful not to be a jerk with load with how the site performs, so even with that it's a 2.5 day or so operation.
+In another case the site itself has performance limitations. This can mean a run that takes as long as a day or more to complete.
+As you might imagine, that adds risk and complexity when things go wrong and I'm trying to get a dataset pushed up.
 
 At times the data is spread across more than one platform. In at multiple examples the scrapers need to pull from separate licensing and quality program portals in order to get something approaching a complete dataset.
 
-This shouldn't be surprising and it shouldn't be seen as malicious. These systems do their best at what was intended: providing reliable information to the folks living in their state.
+And sometimes things change and break things for me downstream. In cases where I'm scraping the search sites directly there's the risk that improvements to UX fundamentally change the page structure, which makes scraping techniques that rely upon it flimsy. So far I've lucked out in that the state sources using APIs or CSVs haven't switched those contracts up on me in a significant way.
+
+These issues and others shouldn't be surprising and shouldn't be seen as malicious. These systems do their best at what was intended: providing reliable information to the folks living in their state.
 
 ## Who pays for the fragmentation
 
